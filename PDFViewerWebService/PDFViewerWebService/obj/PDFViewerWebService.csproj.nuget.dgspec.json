@@ -1,0 +1,76 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\lwa6753\\Downloads\\PDFViewerWebService (2)\\PDFViewerWebService-1226126316(1)\\PDFViewerWebService\\PDFViewerWebService.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\lwa6753\\Downloads\\PDFViewerWebService (2)\\PDFViewerWebService-1226126316(1)\\PDFViewerWebService\\PDFViewerWebService.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\lwa6753\\Downloads\\PDFViewerWebService (2)\\PDFViewerWebService-1226126316(1)\\PDFViewerWebService\\PDFViewerWebService.csproj",
+        "projectName": "PDFViewerWebService",
+        "projectPath": "C:\\Users\\lwa6753\\Downloads\\PDFViewerWebService (2)\\PDFViewerWebService-1226126316(1)\\PDFViewerWebService\\PDFViewerWebService.csproj",
+        "packagesPath": "C:\\Users\\lwa6753\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lwa6753\\Downloads\\PDFViewerWebService (2)\\PDFViewerWebService-1226126316(1)\\PDFViewerWebService\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\lwa6753\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "Syncfusion.EJ2.PdfViewer.AspNet.Core.Windows": {
+              "target": "Package",
+              "version": "[17.4.0.46, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.105\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
