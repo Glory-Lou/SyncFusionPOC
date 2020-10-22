@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="text-center">
+    <h5>Advisor View</h5>
+    <ejs-pdfviewer handWrittenSignatureSettings="@(new Syncfusion.EJ2.PdfViewer.PdfViewerHandWrittenSignatureSettings {Opacity=0.5,StrokeColor="red",Thickness=3})"  enableHandwrittenSignature="true" id="PdfViewer" style="height:900px" serviceUrl="https://localhost:44399/pdfviewer"></ejs-pdfviewer>
+</div>
+
+<script>
+
+    function LoadPdf() {
+        //Sending Ajax request to the controller to get base 64 string
+        var jsonData = new Object();
+        jsonData["documentName"] = "HTTP Succinctly.pdf";
+        $.ajax({
+            url: '/PdfViewer/GetDocument',
+            type: 'POST',
+            dataType: 'text',
+            crossDomain: true,
+            traditional: true,
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify(jsonData),
+            success: function (data) {
+                //Open Window in new tab
+                var ws = window.open("", '_blank', "width=800,height=600,location=no,menubar=no,status=no,titilebar=no,resizable=no")
+                //Adding script and CSS files
+                ws.document.write('<!DOCTYPE html><html><head><title>PdfViewer</title><link href = "https://cdn.syncfusion.com/ej2/17.2.46/material.css" rel = "stylesheet"><script src="https://cdn.syncfusion.com/js/assets/external/jquery-3.1.1.min.js"><\/script><script src="https://cdn.syncfusion.com/ej2/17.2.46/dist/ej2.min.js"><\/script><\/head><body>');
+                //Div to render PDF Viewer
+                ws.document.write('<div style="width:100%;min-height:570px"><div id="PdfViewer"></div><\/div>')
+                //Initializes the PDF Viewer
+                ws.document.write("<script> var pdfviewer = new ej.pdfviewer.PdfViewer({documentPath:'" + data + "',serviceUrl: '/pdfviewer'});pdfviewer.appendTo('#PdfViewer');<\/script>")
+                ws.document.write('<\/body><\/html>');
+                ws.document.close();
+            },
+            error: function (msg, textStatus, errorThrown) {
+                alert('Exception' + msg.responseText);
+            }
+        });
+    }
+
+   
+</script>
+

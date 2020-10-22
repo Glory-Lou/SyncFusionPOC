@@ -1,0 +1,151 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@using System.Drawing.Design;
+
+@using (Html.BeginForm("Home")) {
+
+
+
+
+    // @Html.ActionLink("Flatern", "Flatern")
+<div class="text-center">
+    <h5>Patient View</h5>
+    <p></p>
+    @*<input type="submit" name="Process" value="Process" formaction="ProcessForm" formmethod="post" />
+        <input type="submit" name="AddMultipleSign" value="Add Multiple Sign" formaction="AddMultipleSign" formmethod="post" />
+        <input type="submit" name="AddAnotation" value="AddAnotation" formaction="AddAnotation" formmethod="post" />
+        <input type="submit" name="Save" value="Save" formaction="Save" formmethod="post" />
+        <input type="submit" name="Flatern" value="Flatern" formaction="Flatern" formmethod="post" />*@
+    <ejs-pdfviewer documentPath="" enableThumbnail="false" enablePrint="false" enableBookmark="false" enableCommentPanel="false" enableFormFields="true"
+                   id="container" addSignature="true" enableAnnotationToolbar="false"
+                   style="height:900px" serviceUrl="https://localhost:44399/pdfviewer"></ejs-pdfviewer>
+
+    @*enableAnnotation="false" enableStampAnnotations=" false" enableStickyNotesAnnotation="false"*@
+    @*<sfpdfviewer:SfPdfViewer x:Name="sfPdfViewer" />
+        <sfsignaturepad:SfSignaturePad x:Name="sfSignaturePad" />*@
+</div>
+
+
+    @*<input type="button" action="AddSign" value="AddSign" />*@
+
+    @*< div id = "signature" ></ div >
+            <link rel='nofollow' href="~/Content/content/ej/web/ej.widgets.core.min.css" rel="stylesheet" />
+                <link rel='nofollow' href="~/css/ej.signature.bootstrap-theme.min.css" rel="stylesheet" />
+                <script src="~/Scripts/ej.signature.min.js"></script>
+        < div id = "signature" ></ div >*@
+
+
+    <div id="myModal" class="modal">
+
+        <div class="modal-content">
+
+            <canvas width="500" height="400" id="signature"></canvas>
+            <input id="Addbtn" class="e-btn" type="button" value="Add Sign" ej-button style="width:100px" e-size="normal" e-showroundedcorner="true" />
+
+        </div>
+
+    </div>
+    @*<input id="signsave" class="e-btn" type="button" value="Sign Doc" ej-button e-width="50px" e-size="normal" e-showroundedcorner="true" />*@
+    <style>
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 90px;
+            top: 0;
+            width: 80%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: transparent; /* Black w/ opacity */
+        }
+
+        /* Modal Content/Box */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+            .close:hover,
+            .close:focus {
+                color: black;
+                text-decoration: none;
+                cursor: pointer;
+            }
+    </style>
+    <script type="text/javascript">
+
+        //$(function () {
+        //    $("#container").ejPdfViewer({ serviceUrl: "../api/PdfViewerAPI", enableSignature: true });
+        //});
+        var pad = "";
+        $(document).ready(function () {
+            $("#signsave").on('click', function (event) {
+                var modal = document.getElementById("myModal");
+                modal.style.display = "block";
+                var canvas = document.querySelector('#signature');
+                pad = new SignaturePad(canvas);
+                //$("#dialog1").dialog({
+                //    height: 300,
+                //    width: 550
+                //});
+                // var popup = document.getElementById("dialog1");
+                // popup.classList.toggle("show");
+
+            });
+            $("#Addbtn").on('click', function (event) {
+
+                var data = pad.toDataURL();
+
+
+            });
+        });
+
+
+
+    </script>
+    @*<script>
+            $("#signature").ejSignature();
+
+                            // Create signature
+                            //$('#signature').ejSignature({
+
+                            //});
+
+
+                                //$(function{
+                                //    $("#signature").ejSignature({ height: "400px", isResponsive: true, strokeWidth: 3, saveImageFormat: ej.SaveImageFormat.jpg });
+                                //});
+        </script>*@
+
+    <script>
+               window.onload = function () {
+                    var pdfViewer = document.getElementById('container').ej2_instances[0];
+                   pdfViewer.toolbar.showToolbarItem(new Array("PanTool"), false);
+                   pdfViewer.toolbar.showToolbarItem(new Array("SelectionTool"), false);
+                   pdfViewer.toolbar.showToolbarItem(new Array("SearchOption"), false);
+                   pdfViewer.toolbar.showToolbarItem(new Array("PrintOption"), false);
+                   pdfViewer.toolbar.showToolbarItem(new Array("UndoRedoTool"), false);
+                   pdfViewer.toolbar.showToolbarItem(new Array("CommentTool"), false);
+        }
+
+
+
+        </script>
+}
+
+
+
+
+
